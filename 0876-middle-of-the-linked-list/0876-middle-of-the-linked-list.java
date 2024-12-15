@@ -10,6 +10,7 @@
  */
 class Solution {
     public ListNode middleNode(ListNode head) {
+        //tortoise and hair algo
         ListNode slow=head,fast=head;
         while(fast != null && fast.next != null)
         {
