@@ -10,7 +10,6 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        //recursive 
         if(head==null || head.next==null)
             return head;
         ListNode nn=reverseList(head.next);
