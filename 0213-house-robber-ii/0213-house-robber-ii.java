@@ -1,5 +1,7 @@
 class Solution {
     public int rob(int[] nums) {
+        if(nums.length==1)
+            return nums[0];
         int[] arr1 = Arrays.copyOfRange(nums,1,nums.length);
         int[] arr2 = Arrays.copyOfRange(nums,0,nums.length-1);
         int m1 = Robbing(arr1);
