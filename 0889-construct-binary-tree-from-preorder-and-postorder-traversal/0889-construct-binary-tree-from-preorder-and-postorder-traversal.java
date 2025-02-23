@@ -23,7 +23,7 @@ class Solution {
         TreeNode root = ConstructTree(preorder,0,preorder.length-1,postorder,0,postorder.length-1,mp);
         return root;
     }
-    static TreeNode ConstructTree(int[]preorder,int prestart,int preend,int[] postorder,int poststart,int postend,HashMap<Integer,Integer>mp)
+    static TreeNode ConstructTree(int[] preorder,int prestart,int preend,int[] postorder,int poststart,int postend,HashMap<Integer,Integer>mp)
     {
         if(prestart>preend || poststart>postend) return null;
         TreeNode root = new TreeNode(preorder[prestart]);
