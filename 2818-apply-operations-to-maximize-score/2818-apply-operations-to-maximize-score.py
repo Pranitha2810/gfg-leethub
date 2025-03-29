@@ -75,6 +75,4 @@ class Solution:
             res = (res * self.binaryExponentiation(num, use_cnt)) % MOD
             k -= use_cnt
 
-        return res
-
-        
+        return res   
