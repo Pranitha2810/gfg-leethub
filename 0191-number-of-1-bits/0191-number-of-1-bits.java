@@ -1,12 +1,13 @@
 class Solution {
     public int hammingWeight(int n) {
-        //approch 1
+        //approch 2
         int ans=0;
-        for(int i=0;i<32;i++)
+        while(n>1)
         {
-            if((n&1)==1) ans++;
+            ans+=(n&1);
             n=n>>1;
         }
+        if(n==1) ans+=1;
         return ans;
     }
 }
