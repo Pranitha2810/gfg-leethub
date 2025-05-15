@@ -15,26 +15,27 @@
  */
 class Solution {
     public int sumOfLeftLeaves(TreeNode root) {
-        if(root==null) return 0;
+        //bfs
+        if(root == null) return 0;
         int sum=0;
-        TreeNode leftChild=root.left;
-        if(isLeaf(leftChild))
+        Queue<TreeNode> q = new LinkedList<>();
+        q.add(root);
+        while(!q.isEmpty())
         {
-            sum+=leftChild.val;
+            TreeNode node = q.poll();
+            if(node.left != null)
+            {
+                //check if left node is leaf or not
+                if(node.left.left == null && node.left.right==null) 
+                    sum+=node.left.val;
+                else
+                    q.add(node.left);
+            }
+            if(node.right != null)
+            {
+                q.add(node.right);
+            }
         }
-        else
-        {
-            sum+=sumOfLeftLeaves(leftChild);
-        }
-        TreeNode rightChild=root.right;
-        sum+=sumOfLeftLeaves(rightChild);
         return sum;
-        
-    }
-    static boolean isLeaf(TreeNode node)
-    {
-        if(node==null) return false;
-        if(node.left==null && node.right==null) return true;
-        return false;
     }
 }
