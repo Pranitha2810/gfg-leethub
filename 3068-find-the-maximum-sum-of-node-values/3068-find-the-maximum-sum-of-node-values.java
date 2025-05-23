@@ -1,22 +1,23 @@
 class Solution {
     public long maximumValueSum(int[] nums, int k, int[][] edges) {
-        long sum=0;
-        long minNuksaan =Integer.MAX_VALUE;
-        int count=0;
-        for(long num : nums)
-        {
-            if((num^k)>num)
-            {
+        long sum = 0;
+        int count = 0;
+        int minNukasan = Integer.MAX_VALUE;
+
+        for (int num : nums) {
+            if ((num ^ k) > num) {
                 count++;
-                sum+=(num^k);
+                sum += (num ^ k);
+            } else {
+                sum += num;
             }
-            else
-            {
-                sum+=num;
-            }
-            minNuksaan = Math.min(minNuksaan,Math.abs(num-(num^k)));
+
+            minNukasan = Math.min(minNukasan, Math.abs(num - (num ^ k)));
         }
-        if((count&1)==0) return sum;
-        return sum-minNuksaan;
+
+        if (count % 2 == 0)
+            return sum;
+
+        return sum - minNukasan;
     }
 }
